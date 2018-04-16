@@ -6,26 +6,26 @@ using System.Web.Mvc;
 
 namespace webapp.Controllers
 {
-    public class HomeController : Controller
+    public class ReservationsController : Controller
     {
+        // GET: Reservations
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        // /reservations/add
 
+        public ActionResult AddReservation()
+        {
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        // /reservations/viewall
 
+        public ActionResult ViewReservations()
+        {
             return View();
         }
-
     }
 }
