@@ -1,0 +1,83 @@
+﻿@model webapp.Models.Event
+
+@{
+    ViewBag.Title = "Add an event";   
+}
+
+<h2>AddEvent</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">    
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.id_building, "id_building", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <! COMM MISHU: el vrea sa se pupe cu id de la bulding, da ala nu exista, face drop`down list>
+                <! COMM MISHU: am lasat labelu, da am sters campu de intrare ca asta era pupat cu modelu>
+                <! COMM MISHU: idem la celelante campuri ce cer id>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!cum e mai fancy? label sau placeholder>       
+            @Html.LabelFor(model => model.name," ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name of the event" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, "  ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.date, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control", @placeholder = "Date the event takes place" } })
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, "Please describe the event:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.id_artist, "id_artist", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.id_etype, "id_etype", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+              
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <!COMM: submitu asta imi cheama metoda din controller, aia cu Post, si ii trimite>
+                <!COMM: ca parametru un obiect de tip Event, ca in Models>
+                <input type="submit" value="Add Event☺♥" class="btn btn-primary" />          
+                            
+                <input type="button" value="Cancel" onclick="location.href='@Url.Action("Cancel")'" class="btn btn-primary"/>
+
+            </div>
+
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
