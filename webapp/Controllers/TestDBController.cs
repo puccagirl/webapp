@@ -14,9 +14,12 @@ namespace webapp.Controllers
         // GET: TestDB
         DataSet dcusr = new DataSet();
         //SqlConnection myCon = new SqlConnection(connectionString: "Server=DESKTOP-GU4U896\\SQLEXPRESS;Database=EMA;Trusted_Connection=True;");
-                                                                         //asta de jos ii ip pe care ii serveru sql aka ip lu' ravel
-        SqlConnection myCon = new SqlConnection(connectionString: "Server=2a02:2f0e:120:5af:48b:1fc9:e9db:2cfe,1433; Database=EMA;User Id = admin;Password =hunter2;");
-        public ActionResult Index()
+        //asta de jos ii ip pe care ii serveru sql aka ip lu' ravel
+        //SqlConnection myCon = new SqlConnection(connectionString: "Server=2a02:2f0e:120:5af:48b:1fc9:e9db:2cfe,1433; Database=EMA;User Id = admin;Password =hunter2;");
+
+        SqlConnection myCon = new SqlConnection(connectionString: "Server = tcp:sqlema.database.windows.net, 1433; Initial Catalog = EMA; Persist Security Info=False;User ID = adminn; Password= Hunter22; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;");
+
+    public ActionResult Index()
         {
 
             try
