@@ -199,6 +199,7 @@
     <Compile Include="Controllers\Event_TypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Reservations1Controller.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TestDBController.cs" />
@@ -317,6 +318,11 @@
     <Content Include="Views\Event_Type\Details.cshtml" />
     <Content Include="Views\Event_Type\Edit.cshtml" />
     <Content Include="Views\Event_Type\Index.cshtml" />
+    <Content Include="Views\Reservations1\Create.cshtml" />
+    <Content Include="Views\Reservations1\Delete.cshtml" />
+    <Content Include="Views\Reservations1\Details.cshtml" />
+    <Content Include="Views\Reservations1\Edit.cshtml" />
+    <Content Include="Views\Reservations1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
