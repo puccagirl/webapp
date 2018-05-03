@@ -1,4 +1,4 @@
-﻿@model IEnumerable<webapp.Models.City>
+﻿@model IEnumerable<webapp.Models.Event_Type>
 
 @{
     ViewBag.Title = "Index";
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_city }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_city }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_city })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_etype }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_etype }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_etype })
         </td>
     </tr>
 }

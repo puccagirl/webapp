@@ -1,0 +1,66 @@
+﻿@model webapp.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Building.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Type.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Type.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_event }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
