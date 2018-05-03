@@ -202,7 +202,6 @@
     <Compile Include="Controllers\Reservations1Controller.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\TestDBController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -292,7 +291,6 @@
     <Content Include="Views\Search\ByArtist.cshtml" />
     <Content Include="Views\Search\ByLocation.cshtml" />
     <Content Include="Views\Search\ByDate.cshtml" />
-    <Content Include="Views\TestDB\Index.cshtml" />
     <Content Include="Views\Artists\Create.cshtml" />
     <Content Include="Views\Artists\Delete.cshtml" />
     <Content Include="Views\Artists\Details.cshtml" />
