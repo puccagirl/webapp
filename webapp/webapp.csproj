@@ -324,9 +324,13 @@
     <Content Include="Views\Reservations1\Edit.cshtml" />
     <Content Include="Views\Reservations1\Index.cshtml" />
     <Content Include="Views\Shared\CannotDelete.cshtml" />
+    <Content Include="Views\Events\SearchByArtist.cshtml" />
+    <Content Include="Views\Events\SearchByCity.cshtml" />
+    <Content Include="Views\Events\SearchByDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\SearchByArtist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

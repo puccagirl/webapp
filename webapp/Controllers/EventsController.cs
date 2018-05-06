@@ -138,5 +138,63 @@ namespace webapp.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult SearchByArtist(int? id)
+        {
+            var events = db.Events;
+            List<Event> Users = new List<Event>();
+            foreach (Event e in events) {
+                if (e.id_artist == id) {
+                    Users.Add(e);
+                }
+
+
+            }
+           //  movies = movies.Where(s => s.Title.Contains(searchString));
+            return View(Users.ToList());
+            
+        }
+        public ActionResult SearchByCity(int? id)
+        {
+            var events = db.Events;
+            var buildings = db.Buildings;
+            List<Event> Users = new List<Event>();
+            List<Building> bili = new List<Building>();
+            foreach (Building b in buildings) {
+                if (b.id_city == id) {
+                    bili.Add(b);
+                }
+            }
+            foreach (Event e in events)
+            {
+                foreach (Building b in bili)
+                {
+                    if (e.id_building == b.id_building)
+                    {
+                        Users.Add(e);
+                    }
+                }
+
+            }
+            //  movies = movies.Where(s => s.Title.Contains(searchString)); SearchByDate
+            return View(Users.ToList());
+
+        }
+        public ActionResult SearchByDate(DateTime? id)
+        {
+            var events = db.Events;
+            List<Event> Users = new List<Event>();
+            foreach (Event e in events)
+            {
+                if (e.date == id)
+                {
+                    Users.Add(e);
+                }
+
+
+            }
+            //  movies = movies.Where(s => s.Title.Contains(searchString));
+            return View(Users.ToList());
+
+        }
     }
 }
