@@ -115,9 +115,23 @@ namespace webapp.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Building building = db.Buildings.Find(id);
+            Artist artist = db.Artists.Find(id);
+            var events = db.Events;
+            foreach (Event e in events)
+            {
+                if (e.id_building == id)
+                {
+                                        
+                    return RedirectToAction("CannotDelete");
+                }
+            }
             db.Buildings.Remove(building);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult CannotDelete()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

@@ -115,8 +115,7 @@ namespace webapp.Controllers
             {
                 if (e.id_artist == id)
                 {
-
-                   // return Content("Index","<script language='javascript' type='text/javascript'>alert('Artist is Beeing used in an Event, please refresh the page');</script>");
+                                     
 
                     return RedirectToAction("CannotDelete");
                 }

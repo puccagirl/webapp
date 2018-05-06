@@ -323,7 +323,7 @@
     <Content Include="Views\Reservations1\Details.cshtml" />
     <Content Include="Views\Reservations1\Edit.cshtml" />
     <Content Include="Views\Reservations1\Index.cshtml" />
-    <Content Include="Views\Artists\CannotDelete.cshtml" />
+    <Content Include="Views\Shared\CannotDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

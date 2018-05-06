@@ -110,9 +110,21 @@ namespace webapp.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Event_Type event_Type = db.Event_Type.Find(id);
+            var events = db.Events;
+            foreach (Event e in events)
+            {
+                if (e.id_etype == id)
+                {
+                    return RedirectToAction("CannotDelete");
+                }
+            }
             db.Event_Type.Remove(event_Type);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult CannotDelete()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)
