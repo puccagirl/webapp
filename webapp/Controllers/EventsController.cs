@@ -138,16 +138,25 @@ namespace webapp.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult SearchByArtist(int? id)
+        public ActionResult SearchByArtist(String id)
         {
             var events = db.Events;
-            List<Event> Users = new List<Event>();
-            foreach (Event e in events) {
-                if (e.id_artist == id) {
-                    Users.Add(e);
+            var artisti = db.Artists;
+            List<Event> Users = new List<Event>();           
+            List<Artist> artisti1 = new List<Artist>();
+            foreach (Artist a in artisti) {
+                if (a.name == id) {
+                    artisti1.Add(a);
                 }
+            }
 
-
+            foreach (Event e in events) {
+                foreach (Artist a in artisti1)
+                {
+                    if (e.id_artist == a.id_artist) {
+                        Users.Add(e);
+                    }
+                }
             }
            //  movies = movies.Where(s => s.Title.Contains(searchString));
             return View(Users.ToList());
