@@ -24,6 +24,6 @@ namespace webapp.Models
         [Column("id.reservation")]
         public int? id_reservation { get; set; }
 
-        public virtual Reservation Reservation { get; set; }
+        //public virtual Reservation Reservation { get; set; }
     }
 }
