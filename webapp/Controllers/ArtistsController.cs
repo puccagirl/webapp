@@ -110,11 +110,24 @@ namespace webapp.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Artist artist = db.Artists.Find(id);
+            var events = db.Events;
+            foreach (Event e in events)
+            {
+                if (e.id_artist == id)
+                {
+                                     
+
+                    return RedirectToAction("CannotDelete");
+                }
+            }
             db.Artists.Remove(artist);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult CannotDelete()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

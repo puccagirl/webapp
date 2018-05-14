@@ -1,0 +1,72 @@
+﻿@model IEnumerable<webapp.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (@Html.BeginForm("SearchByArtist", "Events", FormMethod.Get))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.TextBox("id")
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+
+            <label>Artist</label>
+        </th>
+        <th>
+            <label>Building</label>
+        </th>
+        <th>
+            <label>Event Type</label>
+        </th>
+        <th>
+            <label>Event Title</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Building.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event_Type.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_event }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_event }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_event })
+            </td>
+        </tr>
+    }
+
+</table>
