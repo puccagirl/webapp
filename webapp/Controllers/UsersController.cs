@@ -10,112 +10,107 @@ using webapp.Models;
 
 namespace webapp.Controllers
 {
-    public class Reservations1Controller : Controller
+    public class UsersController : Controller
     {
         private EMA db = new EMA();
 
-        // GET: Reservations1
+        // GET: Users
         public ActionResult Index()
         {
-            var reservations = db.Reservations.Include(r => r.Event);
-            return View(reservations.ToList());
+            return View(db.Users.ToList());
         }
 
-        // GET: Reservations1/Details/5
+        // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reservation reservation = db.Reservations.Find(id);
-            if (reservation == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(reservation);
+            return View(user);
         }
 
-        // GET: Reservations1/Create
+        // GET: Users/Create
         public ActionResult Create()
         {
-            ViewBag.id_event = new SelectList(db.Events, "id_event", "name");
             return View();
         }
 
-        // POST: Reservations1/Create
+        // POST: Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_reservation,id_event")] Reservation reservation)
+        public ActionResult Create([Bind(Include = "id_user,username,password,type,id_reservation")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Reservations.Add(reservation);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_event = new SelectList(db.Events, "id_event", "name", reservation.id_event);
-            return View(reservation);
+            return View(user);
         }
 
-        // GET: Reservations1/Edit/5
+        // GET: Users/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reservation reservation = db.Reservations.Find(id);
-            if (reservation == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id_event = new SelectList(db.Events, "id_event", "name", reservation.id_event);
-            return View(reservation);
+            return View(user);
         }
 
-        // POST: Reservations1/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_reservation,id_event")] Reservation reservation)
+        public ActionResult Edit([Bind(Include = "id_user,username,password,type,id_reservation")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(reservation).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_event = new SelectList(db.Events, "id_event", "name", reservation.id_event);
-            return View(reservation);
+            return View(user);
         }
 
-        // GET: Reservations1/Delete/5
+        // GET: Users/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reservation reservation = db.Reservations.Find(id);
-            if (reservation == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(reservation);
+            return View(user);
         }
 
-        // POST: Reservations1/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Reservation reservation = db.Reservations.Find(id);
-            db.Reservations.Remove(reservation);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -199,10 +199,10 @@
     <Compile Include="Controllers\Event_TypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\Reservations1Controller.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TestDBController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,8 +287,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Reservations\AddReservation.cshtml" />
-    <Content Include="Views\Reservations\ViewReservations.cshtml" />
     <Content Include="Views\Search\ByArtist.cshtml" />
     <Content Include="Views\Search\ByLocation.cshtml" />
     <Content Include="Views\Search\ByDate.cshtml" />
@@ -318,19 +316,19 @@
     <Content Include="Views\Event_Type\Details.cshtml" />
     <Content Include="Views\Event_Type\Edit.cshtml" />
     <Content Include="Views\Event_Type\Index.cshtml" />
-    <Content Include="Views\Reservations1\Create.cshtml" />
-    <Content Include="Views\Reservations1\Delete.cshtml" />
-    <Content Include="Views\Reservations1\Details.cshtml" />
-    <Content Include="Views\Reservations1\Edit.cshtml" />
-    <Content Include="Views\Reservations1\Index.cshtml" />
-    <Content Include="Views\Shared\CannotDelete.cshtml" />
-    <Content Include="Views\Events\SearchByArtist.cshtml" />
-    <Content Include="Views\Events\SearchByCity.cshtml" />
-    <Content Include="Views\Events\SearchByDate.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SearchByArtist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -344,6 +342,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
