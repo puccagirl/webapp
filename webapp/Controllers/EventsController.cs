@@ -14,7 +14,7 @@ namespace webapp.Controllers
     {
         private EMA db = new EMA();
 
-        // GET: Events
+        // GET: Events 
         [Authorize (Roles = "Admin")]
         public ActionResult Index()
         {

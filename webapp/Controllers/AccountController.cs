@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using webapp.Models;
 
-namespace webapp.Controllers
+namespace webapp.Controllers 
 {
     [Authorize]
     public class AccountController : Controller
