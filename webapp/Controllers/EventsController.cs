@@ -15,6 +15,7 @@ namespace webapp.Controllers
         private EMA db = new EMA();
 
         // GET: Events
+        [Authorize (Roles = "Admin")]
         public ActionResult Index()
         {
             var events = db.Events;//.Include(@ => @.Artist).Include(@ => @.Event_Type);
