@@ -15,6 +15,8 @@ namespace webapp.Controllers
         private EMA db = new EMA();
 
         // GET: Reservations
+        //AspNetUser us = User.Identity;
+        //[Authorize (Users = User.Identity.GetUserName())]
         public ActionResult Index()
         {
             var reservations = db.Reservations.Include(r => r.AspNetUser).Include(r => r.Event);

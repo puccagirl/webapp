@@ -158,13 +158,10 @@ namespace webapp.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                // User userc = new User { username = model.Email, password = model.Password, type = "user" };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "User";
-                roleManager.Create(role);
+                UserManager.AddToRole(user.Id, "User");
 
-                
+
                 if (result.Succeeded)
                 {
 
