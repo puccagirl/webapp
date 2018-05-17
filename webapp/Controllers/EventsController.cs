@@ -20,10 +20,8 @@ namespace webapp.Controllers
         
         public ActionResult Index()
         {
-            var events = db.Events;
-            //var events = db.Events.Include(@ => @.Artist).Include(@ => @.Building).Include(@ => @.Event_Type);
-            return View(events.ToList());
-           // return View();
+            var events = db.Events;            
+            return View(events.ToList());           
         }
 
         // GET: Events/Details/5
@@ -141,30 +139,58 @@ namespace webapp.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult SearchByArtist(int? id)
+        public ActionResult SearchByArtist(String id)
         {
             var events = db.Events;
+            var artisti = db.Artists;
             List<Event> Users = new List<Event>();
-            foreach (Event e in events) {
-                if (e.id_artist == id) {
-                    Users.Add(e);
+            List<Artist> artisti1 = new List<Artist>();
+            foreach (Artist a in artisti)
+            {
+                if (a.name == id)
+                {
+                    artisti1.Add(a);
                 }
-
-
             }
-           //  movies = movies.Where(s => s.Title.Contains(searchString));
+
+            foreach (Event e in events)
+            {
+                foreach (Artist a in artisti1)
+                {
+                    if (e.id_artist == a.id_artist)
+                    {
+                        Users.Add(e);
+                    }
+                }
+            }           
             return View(Users.ToList());
-            
+
         }
-        public ActionResult SearchByCity(int? id)
+        public ActionResult SearchByCity(String id)
         {
             var events = db.Events;
             var buildings = db.Buildings;
+            var citys = db.Cities;
             List<Event> Users = new List<Event>();
             List<Building> bili = new List<Building>();
-            foreach (Building b in buildings) {
-                if (b.id_city == id) {
-                    bili.Add(b);
+            List<City> cili = new List<City>();
+            foreach (City c in citys)
+            {
+                if (c.name == id)
+                {
+                    cili.Add(c);
+                }
+
+            }
+
+            foreach (Building b in buildings)
+            {
+                foreach (City c in cili)
+                {
+                    if (b.id_city == c.id_city)
+                    {
+                        bili.Add(b);
+                    }
                 }
             }
             foreach (Event e in events)
@@ -177,8 +203,7 @@ namespace webapp.Controllers
                     }
                 }
 
-            }
-            //  movies = movies.Where(s => s.Title.Contains(searchString)); SearchByDate
+            }          
             return View(Users.ToList());
 
         }
@@ -194,8 +219,7 @@ namespace webapp.Controllers
                 }
 
 
-            }
-            //  movies = movies.Where(s => s.Title.Contains(searchString));
+            }           
             return View(Users.ToList());
 
         }
