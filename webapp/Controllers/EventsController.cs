@@ -15,7 +15,7 @@ namespace webapp.Controllers
         private EMA db = new EMA();
 
         // GET: Events
-        [Authorize (Roles = "Admin")]
+        
         public ActionResult Index()
         {
             var events = db.Events;//.Include(@ => @.Artist).Include(@ => @.Event_Type);
@@ -38,6 +38,7 @@ namespace webapp.Controllers
         }
 
         // GET: Events/Create
+        [Authorize(Roles = "Admin,EventManager")]
         public ActionResult Create()
         {
             ViewBag.id_artist = new SelectList(db.Artists, "id_artist", "name");
@@ -65,6 +66,7 @@ namespace webapp.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize(Roles = "Admin,EventManager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,6 +102,7 @@ namespace webapp.Controllers
         }
 
         // GET: Events/Delete/5
+        [Authorize(Roles = "Admin,EventManager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
