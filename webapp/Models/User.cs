@@ -21,8 +21,8 @@ namespace webapp.Models
         [StringLength(10)]
         public string type { get; set; }
 
-        [Column("id.reservation")]
-        public int? id_reservation { get; set; }
+        //[Column("id.reservation")]
+        //public int? id_reservation { get; set; }
 
         //public virtual Reservation Reservation { get; set; }
     }

@@ -46,10 +46,12 @@ namespace webapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_user,username,password,type,id_reservation")] User user)
+        public ActionResult Create([Bind(Include = "id_user,username,password,type")] User user)
         {
             if (ModelState.IsValid)
             {
+                //var userl = new ApplicationUser { UserName = user.username, Email = model.Email };
+
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
