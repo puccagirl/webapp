@@ -11,7 +11,7 @@ using webapp.Models;
 namespace webapp.Controllers
 
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class EventsController : Controller
     {
         private EMA db = new EMA();
