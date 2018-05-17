@@ -9,12 +9,15 @@ using System.Web.Mvc;
 using webapp.Models;
 
 namespace webapp.Controllers
+
 {
+    [Authorize]
     public class EventsController : Controller
     {
         private EMA db = new EMA();
 
         // GET: Events
+        
         public ActionResult Index()
         {
             var events = db.Events;
