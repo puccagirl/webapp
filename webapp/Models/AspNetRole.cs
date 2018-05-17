@@ -13,7 +13,7 @@ namespace webapp.Models
         {
             AspNetUsers = new HashSet<AspNetUser>();
         }
-
+         
         public string Id { get; set; }
 
         [Required]

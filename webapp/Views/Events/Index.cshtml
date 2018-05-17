@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Events</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,22 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            Artist
+            @Html.Label("Name of the artist")
         </th>
         <th>
-            Event Type
+            @Html.Label("Name of the event type")
         </th>
         <th>
-            Building
+            @Html.Label("Name of the building")
         </th>
         <th>
-            Name
+            @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
-            Date
+            @Html.DisplayNameFor(model => model.date)
         </th>
         <th>
-            Description
+            @Html.DisplayNameFor(model => model.description)
         </th>
         <th></th>
     </tr>
