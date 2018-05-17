@@ -12,20 +12,44 @@ namespace webapp.Models
         {
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Artist> Artists { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Building> Buildings { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Event_Type> Event_Type { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Artist>()
                 .Property(e => e.description)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<AspNetRole>()
+                .HasMany(e => e.AspNetUsers)
+                .WithMany(e => e.AspNetRoles)
+                .Map(m => m.ToTable("AspNetUserRoles").MapLeftKey("RoleId").MapRightKey("UserId"));
+
+            modelBuilder.Entity<AspNetUser>()
+                .HasMany(e => e.AspNetUserClaims)
+                .WithRequired(e => e.AspNetUser)
+                .HasForeignKey(e => e.UserId);
+
+            modelBuilder.Entity<AspNetUser>()
+                .HasMany(e => e.AspNetUserLogins)
+                .WithRequired(e => e.AspNetUser)
+                .HasForeignKey(e => e.UserId);
+
+            modelBuilder.Entity<AspNetUser>()
+                .HasMany(e => e.Reservations)
+                .WithOptional(e => e.AspNetUser)
+                .HasForeignKey(e => e.id_user);
 
             modelBuilder.Entity<City>()
                 .HasMany(e => e.Buildings)
@@ -40,10 +64,6 @@ namespace webapp.Models
             modelBuilder.Entity<Event>()
                 .Property(e => e.description)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.type)
-                .IsFixedLength();
         }
     }
 }

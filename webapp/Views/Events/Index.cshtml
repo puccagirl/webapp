@@ -12,17 +12,16 @@
 <table class="table">
     <tr>
         <th>
-           
-            <label>Artist</label>
+            @Html.DisplayNameFor(model => model.Artist.name)
         </th>
         <th>
-            <label>Building</label>
+            @Html.DisplayNameFor(model => model.Event_Type.name)
         </th>
         <th>
-            <label>Event Type</label>
+            @Html.DisplayNameFor(model => model.Building.name)
         </th>
         <th>
-            <label>Event Title</label>
+            @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.date)
@@ -39,10 +38,10 @@
             @Html.DisplayFor(modelItem => item.Artist.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Building.name)
+            @Html.DisplayFor(modelItem => item.Event_Type.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Event_Type.name)
+            @Html.DisplayFor(modelItem => item.Building.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.name)

@@ -17,10 +17,8 @@ namespace webapp.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Events;
-            //var events = db.Events.Include(@ => @.Artist).Include(@ => @.Building).Include(@ => @.Event_Type);
+            var events = db.Events;//.Include(@ => @.Artist).Include(@ => @.Event_Type);
             return View(events.ToList());
-           // return View();
         }
 
         // GET: Events/Details/5
@@ -42,7 +40,6 @@ namespace webapp.Controllers
         public ActionResult Create()
         {
             ViewBag.id_artist = new SelectList(db.Artists, "id_artist", "name");
-            ViewBag.id_building = new SelectList(db.Buildings, "id_building", "name");
             ViewBag.id_etype = new SelectList(db.Event_Type, "id_etype", "name");
             return View();
         }
@@ -62,7 +59,6 @@ namespace webapp.Controllers
             }
 
             ViewBag.id_artist = new SelectList(db.Artists, "id_artist", "name", @event.id_artist);
-            ViewBag.id_building = new SelectList(db.Buildings, "id_building", "name", @event.id_building);
             ViewBag.id_etype = new SelectList(db.Event_Type, "id_etype", "name", @event.id_etype);
             return View(@event);
         }
@@ -80,7 +76,6 @@ namespace webapp.Controllers
                 return HttpNotFound();
             }
             ViewBag.id_artist = new SelectList(db.Artists, "id_artist", "name", @event.id_artist);
-            ViewBag.id_building = new SelectList(db.Buildings, "id_building", "name", @event.id_building);
             ViewBag.id_etype = new SelectList(db.Event_Type, "id_etype", "name", @event.id_etype);
             return View(@event);
         }
@@ -99,7 +94,6 @@ namespace webapp.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.id_artist = new SelectList(db.Artists, "id_artist", "name", @event.id_artist);
-            ViewBag.id_building = new SelectList(db.Buildings, "id_building", "name", @event.id_building);
             ViewBag.id_etype = new SelectList(db.Event_Type, "id_etype", "name", @event.id_etype);
             return View(@event);
         }
@@ -137,64 +131,6 @@ namespace webapp.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        public ActionResult SearchByArtist(int? id)
-        {
-            var events = db.Events;
-            List<Event> Users = new List<Event>();
-            foreach (Event e in events) {
-                if (e.id_artist == id) {
-                    Users.Add(e);
-                }
-
-
-            }
-           //  movies = movies.Where(s => s.Title.Contains(searchString));
-            return View(Users.ToList());
-            
-        }
-        public ActionResult SearchByCity(int? id)
-        {
-            var events = db.Events;
-            var buildings = db.Buildings;
-            List<Event> Users = new List<Event>();
-            List<Building> bili = new List<Building>();
-            foreach (Building b in buildings) {
-                if (b.id_city == id) {
-                    bili.Add(b);
-                }
-            }
-            foreach (Event e in events)
-            {
-                foreach (Building b in bili)
-                {
-                    if (e.id_building == b.id_building)
-                    {
-                        Users.Add(e);
-                    }
-                }
-
-            }
-            //  movies = movies.Where(s => s.Title.Contains(searchString)); SearchByDate
-            return View(Users.ToList());
-
-        }
-        public ActionResult SearchByDate(DateTime? id)
-        {
-            var events = db.Events;
-            List<Event> Users = new List<Event>();
-            foreach (Event e in events)
-            {
-                if (e.date == id)
-                {
-                    Users.Add(e);
-                }
-
-
-            }
-            //  movies = movies.Where(s => s.Title.Contains(searchString));
-            return View(Users.ToList());
-
         }
     }
 }

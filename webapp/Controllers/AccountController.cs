@@ -155,14 +155,14 @@ namespace webapp.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                User userc = new User { username = model.Email, password = model.Password, type = "user" };
+               // User userc = new User { username = model.Email, password = model.Password, type = "user" };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    db.Users.Add(userc);
-                    db.SaveChanges();
+                    //db.Users.Add(userc);
+                   // db.SaveChanges();
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

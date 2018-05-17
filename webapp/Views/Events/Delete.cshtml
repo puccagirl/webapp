@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            <label>Performing Artist</label>
+            @Html.DisplayNameFor(model => model.Artist.name)
         </dt>
 
         <dd>
@@ -20,15 +20,7 @@
         </dd>
 
         <dt>
-            <label>Building</label>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Building.name)
-        </dd>
-
-        <dt>
-            <label>Event Type</label>
+            @Html.DisplayNameFor(model => model.Event_Type.name)
         </dt>
 
         <dd>
@@ -36,8 +28,15 @@
         </dd>
 
         <dt>
-            <label>Event Title</label>
+            @Html.DisplayNameFor(model => model.id_building)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.id_building)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
         </dt>
 
         <dd>
@@ -45,8 +44,7 @@
         </dd>
 
         <dt>
-            <label>Date</label>
-
+            @Html.DisplayNameFor(model => model.date)
         </dt>
 
         <dd>
@@ -54,8 +52,7 @@
         </dd>
 
         <dt>
-            <label>Description</label>
-
+            @Html.DisplayNameFor(model => model.description)
         </dt>
 
         <dd>

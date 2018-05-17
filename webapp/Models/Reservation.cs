@@ -16,6 +16,11 @@ namespace webapp.Models
         public int? id_event { get; set; }
 
         [Column("id.user")]
-        public int? id_user { get; set; }
+        [StringLength(128)]
+        public string id_user { get; set; }
+
+        public virtual AspNetUser AspNetUser { get; set; }
+
+        public virtual Event Event { get; set; }
     }
 }
