@@ -27,53 +27,34 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdo=" dropdown-menu"wn-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("View events", "/", "events")</li>
-                            <li>@Html.ActionLink("Add An Event", "create", "events")</li>
+                            <li>@Html.ActionLink("Add event", "Create", "events")</li>
+                            <li>@Html.ActionLink("Delete an event", "delete", "events")</li>
+                            <li>@Html.ActionLink("Edit an event", "edit", "events")</li>
+                            <li>@Html.ActionLink("View events", "Index", "events")</li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reservations<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Add a reservation", "addreservation", "reservations")</li>
-                            <li>@Html.ActionLink("View your reservations", "viewreservations", "reservations")</li>
+                            <li>@Html.ActionLink("Add a reservation", "Create", "Reservations")</li>
+                            <li>@Html.ActionLink("View your reservations", "Index", "Reservations")</li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Buildings<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Add a building", "create", "buildings")</li>
-                            <li>@Html.ActionLink("View buildings", "/", "buildings")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Artists<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Add an artist", "create", "artists")</li>
-                            <li>@Html.ActionLink("View artists", "/", "artists")</li>
-                        </ul>
-                    </li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("By location", "searchbycity", "events")</li>
-                            <li>@Html.ActionLink("By artist", "searchbyartist", "events")</li>
-                            <li>@Html.ActionLink("By date", "searchbydate", "events")</li>
+                            <li>@Html.ActionLink("By location", "SearchByCity", "Events")</li>
+                            <li>@Html.ActionLink("By artist", "SearchByArtist", "Events")</li>
+                            <li>@Html.ActionLink("By date", "SearchByDate", "Events")</li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cities<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Add a city", "create", "cities")</li>
-                            <li>@Html.ActionLink("View cities", "/", "cities")</li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More about us<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
