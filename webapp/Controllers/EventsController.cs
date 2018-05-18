@@ -102,7 +102,7 @@ namespace webapp.Controllers
         }
 
         // GET: Events/Delete/5
-        [Authorize(Roles = "Admin,EventManager")]
+       [Authorize(Roles = "Admin,EventManager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
